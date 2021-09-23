@@ -35,6 +35,16 @@ git add .
 git commit -m "Upload Buoi1"
 git push
 ```
+## Hàm tạo thư mục
+```
+mkdir <TenThuMuc>
+```
+
+## Hàm tạo file
+```
+touch <TenFile>
+```
+
 
 ## Link Github
 
