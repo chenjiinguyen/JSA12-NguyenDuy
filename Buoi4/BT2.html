@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="any" style="background-color: blue;">ABC</div>
+    <script>
+        // Câu 2: Bên phía HTML hãy tạo một thẻ div có màu bất kỳ. 
+        // Hãy viết một đoạn code thực hiện chức năng khi di chuột 
+        // vào thẻ div sẽ chuyển màu, khi di chuột ra sẽ trở về màu cũ.
+        // DOM 
+
+        any = document.getElementById("any");
+
+        any.addEventListener("mouseover", function(){
+            any.style.backgroundColor = "black";
+        })
+
+        any.addEventListener("mouseout",function(){
+            any.style.backgroundColor = "blue"
+        })
+
+    </script>
+</body>
+</html>

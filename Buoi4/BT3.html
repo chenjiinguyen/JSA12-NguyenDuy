@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="content"></p>
+    <script>
+        // Câu 3:  Viết một function có tên numberOneTriangle() khi chạy function này, 
+        // trên màn hình sẽ đưa ra hình sau:
+        // 1
+        // 11
+        // 111
+        // 1111
+        // 11111
+
+        content = document.getElementById("content")
+        
+        for(i = 1; i <= 15;i++){
+            x = ""
+            for(j = 0; j < i;j++){
+                x = x + "1"
+            }
+            content.innerHTML = content.innerHTML + x + "</br>"
+        }
+    </script>
+</body>
+</html>
