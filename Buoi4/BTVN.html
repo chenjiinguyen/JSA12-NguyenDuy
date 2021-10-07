@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTVN</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h1 {
+            background-color: rgb(197, 53, 0);
+            width: 365px;
+            margin-left: 500px;
+            font-size: 100px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="dongho">00:00:00</h1>
+    <script>
+        setInterval(function () {
+            var now = new Date();
+            var hour = now.getHours();
+            var min = now.getMinutes();
+            var sec = now.getSeconds();
+            let dongho = hour + ":" + min + ":" + sec;
+            document.getElementById("dongho").innerHTML = dongho;
+        }, 1000);
+    </script>
+</body>
+
+</html>
