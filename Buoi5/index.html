@@ -18,45 +18,70 @@
         </ul>
     </div>
     <script>
-        let students = [
-            {
-                "name": "Phung An",
-                "age": "12",
-                "location": "Hanoi",
-                "sothich": ["Music","Movies","Sleep"]
-            },
-            {
-                name: "Thanh",
-                age: 12,
-                location: "Haiphong",
-                sothich: ["Music","Movies","Shopping"]
-            },
-            {
-                name: "Kiet",
-                age: 15,
-                location: "Ninhbinh",
-                sothich: ["Movies","Shopping"]
-            },
-        ];
-        // let value = JSON.stringify(students);
-        // // localStorage.setItem("name","Duy");
-        // localStorage.setItem("students",value);
-
-        let students_string = localStorage.getItem("students");
-        let students_array = JSON.parse(students_string)
-        
-        
-        let result = document.getElementById("result")
-        result.innerHTML = ""
-
-        let li = document.createElement("li");
-        li.innerHTML = "Value"
-        result.appendChild(li)
-
         // Tạo Event cho Button Add (Thêm dữ liệu từ Input vào LocalStorage)
         // Tạo hàm Render ra dữ liệu từ LocalStorage (Reload,Add,Clear)
         // Tạo Event cho Button Clear (Xóa tất cả dữ liệu trong LocalStorage)
-        
+        let key = "todolist";
+        let todo = document.getElementById("todo");
+        let add = document.getElementById("add");
+        let clear = document.getElementById("clear");
+        let result = document.getElementById("result");
+
+        Render();
+
+        add.addEventListener("click",function(){
+            let value = todo.value;
+            // So sánh giá trị rỗng
+            if(value == ""){
+                alert("Bạn chưa nhập dữ liệu vào!!!");
+            }else{
+                // Thực hiện quá trình thêm todo vào LocalStorage
+                let todo_storage = []
+                // Lấy dữ liệu từ LocalStorage (dạng String JSON)
+                let arr_string = localStorage.getItem(key);
+                // Xem nó có tồn tại hay không ??
+                if( arr_string != null)
+                {
+                    // Nếu có thì chuyển từ String JSON sang Array
+                    todo_storage = JSON.parse(arr_string);
+                }
+                // Thêm dữ liệu vào Array
+                todo_storage.push(value);
+                // Chuyển Array thành String JSON
+                arr_string = JSON.stringify(todo_storage);
+                // Lưu dữ liệu String JSON vào LocalStorage
+                localStorage.setItem(key,arr_string);
+                todo.value = ""
+                Render();
+            }
+        });
+        clear.addEventListener("click",function(){
+            // Xóa dữ liệu từ LocalStorage
+            localStorage.removeItem(key);
+            Render();
+        })
+
+        // Lấy dữ liệu từ LocalStorage thành dạng List HTML (UL LI)
+        function Render(){
+            // Thực hiện quá trình thêm todo vào LocalStorage
+            let todo_storage = []
+            // Lấy dữ liệu từ LocalStorage (dạng String JSON)
+            let arr_string = localStorage.getItem(key);
+            // Xem nó có tồn tại hay không ??
+            if( arr_string != null)
+            {
+                // Nếu có thì chuyển từ String JSON sang Array
+                todo_storage = JSON.parse(arr_string);
+            }
+            // Xóa dữ liệu của Result
+            result.innerHTML = "";
+
+            for(let i = 0; i < todo_storage.length;i++){
+                let li = document.createElement("li");
+                li.innerHTML = todo_storage[i];
+                result.appendChild(li);
+            }
+        }
     </script>
 </body>
 </html>
