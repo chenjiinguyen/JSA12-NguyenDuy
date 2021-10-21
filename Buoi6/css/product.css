@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+body {
+    background-color: tomato;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    margin: auto;
+    margin-top: 5%;
+    padding: 50px;
+    height: 70vh;
+    background-color: peru;
+}
+
+.menu {
+    width: 70%;
+    height: 100%;
+    background-color: royalblue;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cart {
+    width: 20%;
+    height: 100%;
+    background-color: teal;
+}
+
+.item {
+    width: 30%;
+    height: 40%;
+    display: flex;
+    padding: 10px;
+    background-color: brown;
+}
+
+.product-view {
+    width: 50%;
+}
+
+.product-img {
+    width: 100%;
+}
+
+.product-content {
+    padding-left: 10px;
+    width: 50%;
+    color:white;
+}
